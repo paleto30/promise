@@ -4,7 +4,6 @@ let ws = {
 
     async showAll(){
         const data = await api.getAll();
-        console.log(data.results);
         let  html = ''
         data.results.forEach(element => {
             const { id, title, overview, poster_path  } = element;
@@ -45,7 +44,6 @@ let ws = {
 }
 
 self.addEventListener("message", (e)=>{
-
     Promise.resolve(ws[`${e.data.accion}`]((e.data.body)? e.data.body: undefined)).then(res => postMessage(res))
 /*     const retorno = ws.showAll();
     Promise.resolve(retorno).then(res => postMessage(res)); */
