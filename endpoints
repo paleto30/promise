@@ -3,3 +3,24 @@ search all: https://api.themoviedb.org/3/search/movie?api_key=3df70b20cbd027249f
 initial endpoint:
     `https://api.themoviedb.org/3/movie/popular?api_key=3df70b20cbd027249f00bb9372cbadf9&page=1&language=es`
 
+
+
+Para obtener la URL del trailer de una película, puedes hacer una solicitud GET a la siguiente URL:
+
+https://api.themoviedb.org/3/movie/{movie_id}/videos?api_key={api_key}
+
+
+Correcto, la respuesta de la API de The Movie DB es un objeto JSON que contiene información sobre los videos asociados con la película que solicitaste. En la mayoría de los casos, la respuesta contendrá varios videos, que pueden incluir trailers, teasers, clips y otros tipos de videos.
+
+Cada objeto de video en la respuesta tendrá los siguientes campos:
+
+id: el ID único del video.
+iso_639_1: el código ISO 639-1 del idioma del video.
+iso_3166_1: el código ISO 3166-1 del país donde se produjo el video.
+key: la clave única que identifica el video en el sitio web de origen (como YouTube).
+name: el título del video.
+site: el sitio web donde se aloja el video (como YouTube).
+size: el tamaño del video en bytes.
+type: el tipo de video (como "Trailer" o "Teaser").
+
+Para obtener la URL del trailer de una película, debes buscar el objeto de video que tenga el valor "Trailer" en el campo type, y luego usar el valor del campo key para construir la URL completa del video en el sitio web de origen. Por ejemplo, si el valor de key es "abc123", la URL del trailer en YouTube sería "https://www.youtube.com/watch?v=abc123".

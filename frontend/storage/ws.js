@@ -8,15 +8,16 @@ let ws = {
         data.results.forEach(element => {
             const { id, title, overview, poster_path  } = element;
             html+=`
-                <div class="card text-center" style="width: 18rem;">
-                    <img src="https://image.tmdb.org/t/p/w780${poster_path}" class="card-img-top" alt="...">
-                    <div class="card-body ">
-                    <h5 class="card-title ">${title}</h5>
-                        <a href="#" class="btn btn-primary " data-movie="${id}">Details</a>
+                <div class="card text-center cardhover" style="width: 18rem; border: 1px solid black;">
+                    <div class="w-100 h-100 position-absolute cardcover d-danger">
+                        <h5 class="card-title ">${title}</h5>
+                        <a href="#" class="btn btn-primary z-3 " data-movie="${id}" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Details</a>
                     </div>
+                    <img src="https://image.tmdb.org/t/p/w780${poster_path}" class="card-img-top imgs" alt="..." >
                 </div>
             `
         });
+        console.log(html);
         return [html];
     },
 
@@ -28,12 +29,12 @@ let ws = {
             const { id, title, overview, poster_path  } = element;
             if (poster_path) {
                 html+=`
-                <div class="card text-center" style="width: 18rem;">
-                    <img src="https://image.tmdb.org/t/p/w780${poster_path}" class="card-img-top" alt="...">
-                    <div class="card-body ">
-                    <h5 class="card-title ">${title}</h5>
-                        <a href="#" class="btn btn-primary " data-movie="${id}">Details</a>
+                <div class="card text-center cardhover" style="width: 18rem; border: 1px solid black;">
+                    <div class="w-100 h-100 position-absolute cardcover d-danger">
+                        <h5 class="card-title ">${title}</h5>
+                        <a href="#" class="btn btn-primary z-3 " data-movie="${id}" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Details</a>
                     </div>
+                    <img src="https://image.tmdb.org/t/p/w780${poster_path}" class="card-img-top imgs" alt="..." >
                 </div>
             `
             }   

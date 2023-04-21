@@ -1,0 +1,27 @@
+.cardcover{
+    opacity: 0;
+    transition-timing-function: ease-in-out;
+    transition-duration: .3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    color: white;
+    font-weight: 800;
+    border-radius: 4px;
+}
+.cardhover:hover > .cardcover{
+    opacity: 1;
+    transition-timing-function: ease-in-out;
+    transition-duration: .3s;
+    background-color: rgba(0, 0, 0,0.8);
+    border-radius: 4px;
+}
+
+
+
+.imgs{
+    height: 400px;
+}

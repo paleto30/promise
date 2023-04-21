@@ -22,7 +22,7 @@ export default {
             searchs.postMessage({accion:"searchOneBYName", body:e.target.value })
             searchs.addEventListener("message",(e)=>{
                 document.querySelector("#cards").innerHTML = [...e.data];
-                searchs .terminate()
+                searchs.terminate()
             })
         }
         
