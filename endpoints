@@ -24,3 +24,7 @@ size: el tamaño del video en bytes.
 type: el tipo de video (como "Trailer" o "Teaser").
 
 Para obtener la URL del trailer de una película, debes buscar el objeto de video que tenga el valor "Trailer" en el campo type, y luego usar el valor del campo key para construir la URL completa del video en el sitio web de origen. Por ejemplo, si el valor de key es "abc123", la URL del trailer en YouTube sería "https://www.youtube.com/watch?v=abc123".
+
+
+
+url = "https://api.themoviedb.org/3/movie/{id}?api_key=3df70b20cbd027249f00bb9372cbadf9

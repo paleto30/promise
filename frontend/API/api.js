@@ -23,6 +23,9 @@ const searchOne = async (name) => {
     }
 }
 
+
+
+
 export default{
     getAll,
     searchOne
