@@ -1,4 +1,5 @@
 
+
 export default {
 
     caragaInicio: async function () {
@@ -30,9 +31,24 @@ export default {
     },
 
 
-
     showModalDetails(){
+        const detail  = document.querySelector("#cards");
+        console.log(detail);
+        detail.addEventListener("click",(e)=>{
+            
+            if (e.target.classList.contains("details")) {                
+                const detalles = new Worker("./storage/ws.js",{type:"module"});
+                let id = e.target.dataset.movie;
+                detalles.postMessage({accion:"showModalDetails",body:`${Number(id)}`});
+                detalles.addEventListener("message",(e)=>{
+                    document.querySelector("#modalD").innerHTML = e.data;
+                    detalles.terminate();
+                })
+
+            }  
+            
         
+        })
     }
 
 

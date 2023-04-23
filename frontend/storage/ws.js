@@ -11,13 +11,13 @@ let ws = {
                 <div class="card text-center cardhover" style="width: 18rem; border: 1px solid black;">
                     <div class="w-100 h-100 position-absolute cardcover d-danger">
                         <h5 class="card-title ">${title}</h5>
-                        <a href="#" class="btn btn-primary z-3 " data-movie="${id}" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Details</a>
+                        <button type="button" class="btn btn-primary z-3  details" data-movie="${id}" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Details</button>
                     </div>
                     <img src="https://image.tmdb.org/t/p/w780${poster_path}" class="card-img-top imgs" alt="..." >
                 </div>
             `
         });
-        console.log(html);
+        
         return [html];
     },
 
@@ -32,7 +32,7 @@ let ws = {
                 <div class="card text-center cardhover" style="width: 18rem; border: 1px solid black;">
                     <div class="w-100 h-100 position-absolute cardcover d-danger">
                         <h5 class="card-title ">${title}</h5>
-                        <a href="#" class="btn btn-primary z-3 " data-movie="${id}" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Details</a>
+                        <button type="button" class="btn btn-primary z-3  details" data-movie="${id}" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Details</button>
                     </div>
                     <img src="https://image.tmdb.org/t/p/w780${poster_path}" class="card-img-top imgs" alt="..." >
                 </div>
@@ -43,26 +43,28 @@ let ws = {
     },
 
 
-    showModalDetails(idMovie){
+    async showModalDetails(idMovie){
+
+        const data = await api.getOneById(idMovie);
+
+        console.log(data);
+        
         let html = `
-        <!-- Modal -->
-        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-          <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <img src="https://image.tmdb.org/t/p/w780${data.backdrop_path}" class="card-img-top " alt="..." >
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="d-flex justify-content-center ">
+                            <h3 class="card-title">${data.original_title}</h3>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
+
         `
+        return html;
     }
 
 }

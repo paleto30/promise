@@ -11,7 +11,6 @@ const getAll =  async ()=>{
 }
 
 
-
 // search one by name 
 const searchOne = async (name) => {
     try {
@@ -23,10 +22,23 @@ const searchOne = async (name) => {
     }
 }
 
+// datos detalles
+const getOneById = async(id)=>{
+    try {
+        const data = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=3df70b20cbd027249f00bb9372cbadf9`) 
+        const result = await data.json();
+        return result;
+    } catch (error) {
+        console.log(error);
+    }
+
+}
+
 
 
 
 export default{
     getAll,
-    searchOne
+    searchOne,
+    getOneById
 }

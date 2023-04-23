@@ -13,7 +13,23 @@
 <body class="bg-dark">
 
 
-    <div class="modall" id="modalD" ></div>
+    <div class="modall" >
+         <!-- Modal -->
+         <div class="modal fade " id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg ">
+                <div class="modal-content">
+                <div class="modal-header bg-dark">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel"></h1>
+                    <button type="button" class="btn-close bg-info"  data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body bg-dark pb-3" id="modalD" >
+                    <!-- aqui van los detalles -->
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <nav class="navbar bg-dark">
         <div class="container-fluid d-flex justify-content-center ms-5 me-5">
@@ -30,9 +46,10 @@
         </div>
     </section>
 
-    <div class="container mt-5 mb-5 d-flex flex-wrap gap-4 justify-content-center " id="cards">        
+    <div class="container mt-5 mb-5 d-flex flex-wrap gap-4 justify-content-center contenido" id="cards">        
         <!-- aqui van las cards -->
     </div>
+
 
     
 
