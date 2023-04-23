@@ -14,6 +14,7 @@
 }
 .cardhover:hover > .cardcover{
     opacity: 1;
+    
     transition-timing-function: ease-in-out;
     transition-duration: .3s;
     background-color: rgba(0, 0, 0,0.8);
