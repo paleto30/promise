@@ -35,7 +35,6 @@ export default {
         const detail  = document.querySelector("#cards");
         console.log(detail);
         detail.addEventListener("click",(e)=>{
-            
             if (e.target.classList.contains("details")) {                
                 const detalles = new Worker("./storage/ws.js",{type:"module"});
                 let id = e.target.dataset.movie;

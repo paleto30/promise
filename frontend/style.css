@@ -25,3 +25,28 @@
 .imgs{
     height: 400px;
 }
+
+
+
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: auto;
+    scrollbar-color: #ee0000 #ffffff;
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #343a40;
+
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #ff0000;
+    border-radius: 10px ;
+    border: 1px solid #343a40;
+  }

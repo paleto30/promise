@@ -31,8 +31,18 @@ const getOneById = async(id)=>{
     } catch (error) {
         console.log(error);
     }
-
 }
+
+
+const getTrailers = async(id)=>{
+    try {
+        const data = await fetch(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=3df70b20cbd027249f00bb9372cbadf9`)
+        const result = await data.json();
+        return result;
+    } catch (error) {  
+        console.log(error);
+    }
+}   
 
 
 
@@ -40,5 +50,6 @@ const getOneById = async(id)=>{
 export default{
     getAll,
     searchOne,
-    getOneById
+    getOneById,
+    getTrailers
 }

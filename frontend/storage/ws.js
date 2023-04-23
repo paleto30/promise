@@ -1,3 +1,4 @@
+
 import api from "../API/api.js";
 
 let ws = {
@@ -17,13 +18,12 @@ let ws = {
                 </div>
             `
         });
-        
         return [html];
     },
 
+
     async searchOneBYName(name) {
         let html = '';
-
         const data = await api.searchOne(name);
         data.results.forEach(element => {
             const { id, title, overview, poster_path  } = element;
@@ -44,27 +44,45 @@ let ws = {
 
 
     async showModalDetails(idMovie){
-
+        
         const data = await api.getOneById(idMovie);
+        const trailer = await api.getTrailers(idMovie);
+        let opcion = '';
+        
+        if (trailer.results.length === 0) {
+            opcion = `
+                <div class="row">
+                    <div class="col-12 col-md-12">
+                        <img src="https://image.tmdb.org/t/p/w780${ (data.backdrop_path) ? data.backdrop_path : data.poster_path}" class="card-img-top " alt="..." >
+                    </div>
+                </div>
+            `;
+        }else{
+            opcion = `
+                <div class="row">
+                    <iframe width="560" height="515" src="https://www.youtube.com/embed/${trailer.results[0]['key']}" frameborder="0" allowfullscreen></iframe>
+                </div>
+            ` 
+        }
 
-        console.log(data);
         
         let html = `
             <div class="container-fluid">
-                <div class="row">
-                    <div class="col-12 col-md-6">
-                        <img src="https://image.tmdb.org/t/p/w780${data.backdrop_path}" class="card-img-top " alt="..." >
-                    </div>
-                    <div class="col-12 col-md-6">
+                <div class="row mb-2">
+                    <div class="col-12 col-md-12">
                         <div class="d-flex justify-content-center ">
-                            <h3 class="card-title">${data.original_title}</h3>
+                            <h3 class="card-title " style="color: white">${data.original_title}</h3>
                         </div>
                     </div>
                 </div>
+                ${opcion}                 
+                <div class="row mt-4">
+                    <p class="" style="color:white ">${data.overview}</p>
+                </div>
             </div>
-
         `
-        return html;
+        return html; 
+              
     }
 
 }
