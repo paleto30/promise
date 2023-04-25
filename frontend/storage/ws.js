@@ -63,6 +63,7 @@ let ws = {
                 </div>
             ` 
         }
+        
         let html = `
             <div class="container-fluid">
                 <div class="row mb-2">

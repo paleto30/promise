@@ -1,8 +1,7 @@
 
-
 export default {
 
-    caragaInicio: async function () {
+    caragaInicio() {
         const all = new Worker("./storage/ws.js", { type: "module" });
         all.postMessage({ accion: "showAll" });
         all.addEventListener("message", (e) => {
